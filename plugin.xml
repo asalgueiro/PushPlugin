@@ -3,14 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:amazon="http://schemas.android.com/apk/lib/com.amazon.device.ads"
     xmlns:rim="http://www.blackberry.com/ns/widgets"
-    id="com.phonegap.plugins.PushPlugin"
-    version="2.5.0">
+    id="cordova-plugin-push-iphm-proto"
+    version="0.0.1">
 
-  <name>PushPlugin</name>
-	<author>Bob Easterday</author>
+  <name>PushPluginIPHM</name>
+	<author>IPHM team</author>
 
 	<description>
-		This plugin allows your application to receive push notifications on Android, iOS, WP8 and Windows8 devices.
+	This is fork of https://github.com/phonegap-build/PushPlugin to support AWS SNS registration.
+	This plugin allows your application to receive push notifications on Android, iOS, WP8 and Windows8 devices.
     Android uses Google Cloud Messaging.
     iOS uses Apple APNS Notifications.
     WP8 uses Microsoft MPNS Notifications.

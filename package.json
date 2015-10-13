@@ -1,0 +1,43 @@
+{
+  "name": "PushPlugin",
+  "version": "0.0.1",
+  "description": "\r\n\tThis is fork of https://github.com/phonegap-build/PushPlugin to support AWS SNS registration.\r\n\tThis plugin allows your application to receive push notifications on Android, iOS, WP8 and Windows8 devices.\r\n    Android uses Google Cloud Messaging.\r\n    iOS uses Apple APNS Notifications.\r\n    WP8 uses Microsoft MPNS Notifications.\r\n    Windows8 uses Microsoft WNS Notifications.\r\n\t",
+  "cordova": {
+    "id": "cordova-plugin-push-iphm-proto",
+    "platforms": [
+      "android",
+      "amazon-fireos",
+      "ios",
+      "blackberry10",
+      "wp8",
+      "windows8",
+      "windows"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avkomar/PushPlugin.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-amazon-fireos",
+    "cordova-ios",
+    "cordova-blackberry10",
+    "cordova-wp8",
+    "cordova-windows8",
+    "cordova-windows"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "author": "IPHM team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/avkomar/PushPlugin/issues"
+  },
+  "homepage": "https://github.com/avkomar/PushPlugin#readme"
+}
