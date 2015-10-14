@@ -1,3 +1,5 @@
+# This is fork with aws sns services support used for IPHM prototype purpose
+
 # [DEPRECATED] Cordova Push Notifications Plugin for Android, iOS, WP8, Windows8, BlackBerry 10 and Amazon Fire OS
 
 
