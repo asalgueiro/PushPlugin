@@ -4,7 +4,7 @@
     xmlns:amazon="http://schemas.android.com/apk/lib/com.amazon.device.ads"
     xmlns:rim="http://www.blackberry.com/ns/widgets"
     id="cordova-plugin-push-iphm-proto"
-    version="0.0.2">
+    version="0.0.3">
 
   <name>PushPluginIPHM</name>
 	<author>IPHM team</author>
@@ -60,6 +60,8 @@
 			<service android:name="com.plugin.gcm.GCMIntentService" />
 		</config-file>
 
+		<source-file src="src/android/libs/aws-android-sdk-core-2.2.6.jar" target-dir="libs/" />
+		<source-file src="src/android/libs/aws-android-sdk-sqs-2.2.6.jar" target-dir="libs/" />
 		<source-file src="src/android/libs/aws-android-sdk-sns-2.2.6.jar" target-dir="libs/" />
 		<source-file src="src/android/libs/gcm.jar" target-dir="libs/" />
 		<source-file src="src/android/com/plugin/gcm/CordovaGCMBroadcastReceiver.java" target-dir="src/com/plugin/gcm/" />
