@@ -179,7 +179,7 @@ public class GCMIntentService extends GCMBaseIntentService {
         NotificationCompat.Builder mBuilder =
             new NotificationCompat.Builder(context)
                 .setDefaults(defaults)
-                .setSmallIcon(com.phonegap.helloworld.R.drawable.ic_stat_ip)
+//                .setSmallIcon(com.phonegap.helloworld.R.drawable.ic_stat_ip)
                 .setWhen(System.currentTimeMillis())
                 .setContentTitle(title)
                 .setTicker(title)
