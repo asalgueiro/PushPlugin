@@ -4,7 +4,7 @@
     xmlns:amazon="http://schemas.android.com/apk/lib/com.amazon.device.ads"
     xmlns:rim="http://www.blackberry.com/ns/widgets"
     id="cordova-plugin-push-iphm-proto"
-    version="0.0.6">
+    version="0.0.7">
 
   <name>PushPluginIPHM</name>
 	<author>IPHM team</author>

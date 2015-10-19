@@ -2,6 +2,7 @@ package com.plugin.gcm;
 
 import android.app.NotificationManager;
 import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -71,125 +72,155 @@ public class PushPlugin extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray data, CallbackContext callbackContext)
     {
-        boolean isSuccess = false;
-        boolean invokeCallback = true;
-        String message = "";
+        new ExecuteAWSTask().execute(new AWSTaskParameters(action, data, callbackContext, this.webView));
+        return true;
+    }
 
-        Log.v(TAG, "execute: action=" + action + " data=" + data.toString());
-
-// TODO: refactor this "switch" to avoid code duplication, preferably using a data driven style: 
-// JS method name, arguments to extract from 'data', Java code to invoke with them
-
-        if (REGISTER.equals(action))
+    private class AWSTaskParameters
+    {
+        public AWSTaskParameters(String action, JSONArray data, CallbackContext callbackContext, CordovaWebView webView)
         {
-            try
+            this.action = action;
+            this.data = data;
+            this.callbackContext = callbackContext;
+            this.webView = webView;
+        }
+
+        public String action;
+        public JSONArray data;
+        public CallbackContext callbackContext;
+        public CordovaWebView webView;
+    }
+
+
+    private class ExecuteAWSTask extends AsyncTask<AWSTaskParameters, Void, Boolean> {
+
+        private boolean execAWSTask(String action, JSONArray data, CallbackContext callbackContext, CordovaWebView webView)
+        {
+            boolean isSuccess = false;
+            boolean invokeCallback = true;
+            String message = "";
+
+            Log.v(TAG,"execute: action="+action+" data="+data.toString());
+
+    // TODO: refactor this "switch" to avoid code duplication, preferably using a data driven style:
+    // JS method name, arguments to extract from 'data', Java code to invoke with them
+
+            if(REGISTER.equals(action))
+
             {
-                JSONObject jo = data.getJSONObject(0);
+                try {
+                    JSONObject jo = data.getJSONObject(0);
 
-                gWebView = this.webView;
-                Log.v(TAG, action + ": jo=" + jo.toString());
+                    gWebView = webView;
+                    Log.v(TAG, action + ": jo=" + jo.toString());
 
-                gECB = (String) jo.get("ecb");
-                gSenderID = (String) jo.get("senderID");
+                    gECB = (String) jo.get("ecb");
+                    gSenderID = (String) jo.get("senderID");
 
-                Log.v(TAG, action + ": ECB=" + gECB + " senderID=" + gSenderID);
+                    Log.v(TAG, action + ": ECB=" + gECB + " senderID=" + gSenderID);
 
-                GCMRegistrar.register(getApplicationContext(), gSenderID);
+                    GCMRegistrar.register(getApplicationContext(), gSenderID);
+                    isSuccess = true;
+                } catch (JSONException e) {
+                    message = e.getMessage();
+                    Log.e(TAG, action + ": Got JSON Exception " + message);
+                }
+
+                if (!gCachedExtras.isEmpty()) {
+                    Log.v(TAG, "sending cached extras");
+                    for (Bundle extras : gCachedExtras) {
+                        sendExtras(extras);
+                    }
+                    gCachedExtras.clear();
+                }
+            }
+
+            else if(UNREGISTER.equals(action))
+
+            {
+                GCMRegistrar.unregister(getApplicationContext());
                 isSuccess = true;
             }
-            catch (JSONException e)
-            {
-                message = e.getMessage();
-                Log.e(TAG, action + ": Got JSON Exception " + message);
-            }
 
-            if ( !gCachedExtras.isEmpty() )
-            {
-                Log.v(TAG, "sending cached extras");
-                for (Bundle extras : gCachedExtras)
-                {
-                    sendExtras(extras);
-                }
-                gCachedExtras.clear();
-            }
-        }
-        else if (UNREGISTER.equals(action))
-        {
-            GCMRegistrar.unregister(getApplicationContext());
-            isSuccess = true;
-        }
-        else if (AWS_FIND_APP.equals(action))
-        {
-            message = "Failed to find platform app for GCM";
-            if (isSuccess = awsFindPlatformApplication() && reportAwsParameters(callbackContext))
-            {
-                invokeCallback = false;
-            }
-        }
-        else if (AWS_ADD_ENDPOINT.equals(action))
-        {
-            message = "Failed to create endpoint";
-            try
-            {
-                JSONObject jo = data.getJSONObject(0);
-                Log.v(TAG, action + ": jo=" + jo.toString());
+            else if(AWS_FIND_APP.equals(action))
 
-                String name = (String) jo.get("name");
-                Log.v(TAG, action + ": name=" + name);
-
-                if (isSuccess = awsCreateEndpoint(name) && reportAwsParameters(callbackContext))
-                {
+            {
+                message = "Failed to find platform app for GCM";
+                if (isSuccess = awsFindPlatformApplication() && reportAwsParameters(callbackContext)) {
                     invokeCallback = false;
                 }
             }
-            catch (JSONException e)
-            {
-                message = e.getMessage();
-                Log.e(TAG, action + ": Got JSON Exception " + message);
-            }
-        }
-        else if (AWS_SUBSCRIBE.equals(action))
-        {
-            message = "Failed to subscribe";
-            try
-            {
-                JSONObject jo = data.getJSONObject(0);
-                Log.v(TAG, action + ": jo=" + jo.toString());
 
-                String topicArn = (String) jo.get("topic");
-                Log.v(TAG, action + ": topicArn=" + topicArn);
+            else if(AWS_ADD_ENDPOINT.equals(action))
 
-                if (isSuccess = awsSubscribe(topicArn) && reportAwsParameters(callbackContext))
-                {
-                    invokeCallback = false;
+            {
+                message = "Failed to create endpoint";
+                try {
+                    JSONObject jo = data.getJSONObject(0);
+                    Log.v(TAG, action + ": jo=" + jo.toString());
+
+                    String name = (String) jo.get("name");
+                    Log.v(TAG, action + ": name=" + name);
+
+                    if (isSuccess = awsCreateEndpoint(name) && reportAwsParameters(callbackContext)) {
+                        invokeCallback = false;
+                    }
+                } catch (JSONException e) {
+                    message = e.getMessage();
+                    Log.e(TAG, action + ": Got JSON Exception " + message);
                 }
             }
-            catch (JSONException e)
-            {
-                message = e.getMessage();
-                Log.e(TAG, action + ": Got JSON Exception " + message);
-            }
-        }
-        else
-        {
-            message = "Invalid action : " + action;
-            Log.e(TAG, message);
-        }
 
-        if (invokeCallback)
-        {
-            if (isSuccess)
+            else if(AWS_SUBSCRIBE.equals(action))
+
             {
-                callbackContext.success();
+                message = "Failed to subscribe";
+                try {
+                    JSONObject jo = data.getJSONObject(0);
+                    Log.v(TAG, action + ": jo=" + jo.toString());
+
+                    String topicArn = (String) jo.get("topic");
+                    Log.v(TAG, action + ": topicArn=" + topicArn);
+
+                    if (isSuccess = awsSubscribe(topicArn) && reportAwsParameters(callbackContext)) {
+                        invokeCallback = false;
+                    }
+                } catch (JSONException e) {
+                    message = e.getMessage();
+                    Log.e(TAG, action + ": Got JSON Exception " + message);
+                }
             }
+
             else
+
             {
-                callbackContext.error(message);
+                message = "Invalid action : " + action;
+                Log.e(TAG, message);
             }
+
+            if(invokeCallback)
+
+            {
+                if (isSuccess) {
+                    callbackContext.success();
+                } else {
+                    callbackContext.error(message);
+                }
+            }
+
+            return isSuccess;
         }
 
-        return isSuccess;
+        @Override
+        protected Boolean doInBackground(AWSTaskParameters[] params) {
+            return new Boolean(execAWSTask(params[0].action, params[0].data, params[0].callbackContext, params[0].webView));
+        }
+
+
+
     }
+
 
     /*
      * Sends a json object to the client as parameter to a method which is defined in gECB.
