@@ -4,7 +4,7 @@
     xmlns:amazon="http://schemas.android.com/apk/lib/com.amazon.device.ads"
     xmlns:rim="http://www.blackberry.com/ns/widgets"
     id="cordova-plugin-push-iphm-proto"
-    version="0.0.9">
+    version="0.0.10">
 
   <name>PushPluginIPHM</name>
 	<author>IPHM team</author>
@@ -69,11 +69,11 @@
 		<source-file src="src/android/com/plugin/gcm/GCMIntentService.java" target-dir="src/com/plugin/gcm/" />
 		<source-file src="src/android/com/plugin/gcm/PushHandlerActivity.java" target-dir="src/com/plugin/gcm/" />
 		<source-file src="src/android/com/plugin/gcm/PushPlugin.java" target-dir="src/com/plugin/gcm/" />
-		<source-file src="res/drawable-hdpi/ic_stat_ip.png" target-dir="res/drawable-hdpi/" />
-		<source-file src="res/drawable-mdpi/ic_stat_ip.png" target-dir="res/drawable-mdpi/" />
-		<source-file src="res/drawable-xhdpi/ic_stat_ip.png" target-dir="res/drawable-xhdpi/" />
-		<source-file src="res/drawable-xxhdpi/ic_stat_ip.png" target-dir="res/drawable-xxhdpi/" />
-		<source-file src="res/drawable-xxxhdpi/ic_stat_ip.png" target-dir="res/drawable-xxxhdpi/" />
+		<source-file src="res/drawable/android/drawable-hdpi/ic_stat_ip.png" target-dir="res/drawable-hdpi/" />
+		<source-file src="res/drawable/android/drawable-mdpi/ic_stat_ip.png" target-dir="res/drawable-mdpi/" />
+		<source-file src="res/drawable/android/drawable-xhdpi/ic_stat_ip.png" target-dir="res/drawable-xhdpi/" />
+		<source-file src="res/drawable/android/drawable-xxhdpi/ic_stat_ip.png" target-dir="res/drawable-xxhdpi/" />
+		<source-file src="res/drawable/android/drawable-xxxhdpi/ic_stat_ip.png" target-dir="res/drawable-xxxhdpi/" />
 	</platform>
 
     <!-- amazon-fireos -->
