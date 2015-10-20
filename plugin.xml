@@ -4,7 +4,7 @@
     xmlns:amazon="http://schemas.android.com/apk/lib/com.amazon.device.ads"
     xmlns:rim="http://www.blackberry.com/ns/widgets"
     id="cordova-plugin-push-iphm-proto"
-    version="0.0.10">
+    version="0.0.11">
 
   <name>PushPluginIPHM</name>
 	<author>IPHM team</author>
@@ -60,20 +60,46 @@
 			<service android:name="com.plugin.gcm.GCMIntentService" />
 		</config-file>
 
+    <!-- dependencies  -->
 		<source-file src="src/android/libs/aws-android-sdk-core-2.2.6.jar" target-dir="libs/" />
 		<source-file src="src/android/libs/aws-android-sdk-sqs-2.2.6.jar" target-dir="libs/" />
 		<source-file src="src/android/libs/aws-android-sdk-sns-2.2.6.jar" target-dir="libs/" />
 		<source-file src="src/android/libs/gson-2.2.4.jar" target-dir="libs/" />
 		<source-file src="src/android/libs/gcm.jar" target-dir="libs/" />
+
+    <!-- sources -->
 		<source-file src="src/android/com/plugin/gcm/CordovaGCMBroadcastReceiver.java" target-dir="src/com/plugin/gcm/" />
 		<source-file src="src/android/com/plugin/gcm/GCMIntentService.java" target-dir="src/com/plugin/gcm/" />
 		<source-file src="src/android/com/plugin/gcm/PushHandlerActivity.java" target-dir="src/com/plugin/gcm/" />
 		<source-file src="src/android/com/plugin/gcm/PushPlugin.java" target-dir="src/com/plugin/gcm/" />
+
+    <!-- push notification icon -->
+    <source-file src="res/drawable/android/drawable/ic_stat_ip.png" target-dir="res/drawable/" />
 		<source-file src="res/drawable/android/drawable-hdpi/ic_stat_ip.png" target-dir="res/drawable-hdpi/" />
 		<source-file src="res/drawable/android/drawable-mdpi/ic_stat_ip.png" target-dir="res/drawable-mdpi/" />
 		<source-file src="res/drawable/android/drawable-xhdpi/ic_stat_ip.png" target-dir="res/drawable-xhdpi/" />
 		<source-file src="res/drawable/android/drawable-xxhdpi/ic_stat_ip.png" target-dir="res/drawable-xxhdpi/" />
 		<source-file src="res/drawable/android/drawable-xxxhdpi/ic_stat_ip.png" target-dir="res/drawable-xxxhdpi/" />
+
+    <!-- splashscreens -->
+    <source-file src="res/screen/android/drawable-land-hdpi/screen.png" target-dir="res/drawable-land-hdpi/" />
+    <source-file src="res/screen/android/drawable-land-ldpi/screen.png" target-dir="res/drawable-land-ldpi/" />
+    <source-file src="res/screen/android/drawable-land-mdpi/screen.png" target-dir="res/drawable-land-mdpi/" />
+    <source-file src="res/screen/android/drawable-land-xhdpi/screen.png" target-dir="res/drawable-land-xhdpi/" />
+    <source-file src="res/screen/android/drawable-port-hdpi/screen.png" target-dir="res/drawable-port-hdpi/" />
+    <source-file src="res/screen/android/drawable-port-ldpi/screen.png" target-dir="res/drawable-port-ldpi/" />
+    <source-file src="res/screen/android/drawable-port-mdpi/screen.png" target-dir="res/drawable-port-mdpi/" />
+    <source-file src="res/screen/android/drawable-port-xhdpi/screen.png" target-dir="res/drawable-port-xhdpi/" />
+
+    <!-- application icon -->
+    <source-file src="res/icon/android/drawable/icon.png" target-dir="res/drawable/" />
+    <source-file src="res/icon/android/drawable-ldpi/icon.png" target-dir="res/drawable-ldpi/" />
+    <source-file src="res/icon/android/drawable-hdpi/icon.png" target-dir="res/drawable-hdpi/" />
+		<source-file src="res/icon/android/drawable-mdpi/icon.png" target-dir="res/drawable-mdpi/" />
+		<source-file src="res/icon/android/drawable-xhdpi/icon.png" target-dir="res/drawable-xhdpi/" />
+		<source-file src="res/icon/android/drawable-xxhdpi/icon.png" target-dir="res/drawable-xxhdpi/" />
+		<source-file src="res/icon/android/drawable-xxxhdpi/icon.png" target-dir="res/drawable-xxxhdpi/" />
+
 	</platform>
 
     <!-- amazon-fireos -->
