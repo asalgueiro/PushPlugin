@@ -4,7 +4,7 @@
   xmlns:amazon="http://schemas.android.com/apk/lib/com.amazon.device.ads"
   xmlns:rim="http://www.blackberry.com/ns/widgets"
   id="cordova-plugin-push-iphm-proto"
-  version="0.0.12">
+  version="0.0.13">
 
   <name>PushPluginIPHM</name>
   <author>IPHM team</author>
@@ -74,7 +74,6 @@
     <source-file src="src/android/com/plugin/gcm/PushPlugin.java" target-dir="src/com/plugin/gcm/" />
 
     <!-- push notification icon -->
-    <source-file src="res/drawable/android/drawable/ic_stat_ip.png" target-dir="res/drawable/" />
     <source-file src="res/drawable/android/drawable-hdpi/ic_stat_ip.png" target-dir="res/drawable-hdpi/" />
     <source-file src="res/drawable/android/drawable-mdpi/ic_stat_ip.png" target-dir="res/drawable-mdpi/" />
     <source-file src="res/drawable/android/drawable-xhdpi/ic_stat_ip.png" target-dir="res/drawable-xhdpi/" />
@@ -92,7 +91,6 @@
     <source-file src="res/screen/android/drawable-port-xhdpi/screen.png" target-dir="res/drawable-port-xhdpi/" />
 
     <!-- application icon -->
-    <source-file src="res/icon/android/drawable/icon.png" target-dir="res/drawable/" />
     <source-file src="res/icon/android/drawable-ldpi/icon.png" target-dir="res/drawable-ldpi/" />
     <source-file src="res/icon/android/drawable-hdpi/icon.png" target-dir="res/drawable-hdpi/" />
     <source-file src="res/icon/android/drawable-mdpi/icon.png" target-dir="res/drawable-mdpi/" />
