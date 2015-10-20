@@ -18,6 +18,8 @@ import com.google.android.gcm.GCMBaseIntentService;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.apache.cordova.CordovaInterface;
+
 @SuppressLint("NewApi")
 public class GCMIntentService extends GCMBaseIntentService {
 
@@ -179,7 +181,7 @@ public class GCMIntentService extends GCMBaseIntentService {
         NotificationCompat.Builder mBuilder =
             new NotificationCompat.Builder(context)
                 .setDefaults(defaults)
-//                .setSmallIcon(com.phonegap.helloworld.R.drawable.ic_stat_ip)
+                .setSmallIcon(context.getResources().getIdentifier("ic_stat_ip", "drawable", context.getPackageName()))
                 .setWhen(System.currentTimeMillis())
                 .setContentTitle(title)
                 .setTicker(title)
