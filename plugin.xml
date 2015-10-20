@@ -69,11 +69,11 @@
 		<source-file src="src/android/com/plugin/gcm/GCMIntentService.java" target-dir="src/com/plugin/gcm/" />
 		<source-file src="src/android/com/plugin/gcm/PushHandlerActivity.java" target-dir="src/com/plugin/gcm/" />
 		<source-file src="src/android/com/plugin/gcm/PushPlugin.java" target-dir="src/com/plugin/gcm/" />
-		<source-file src="res/drawable/ic_stat_ip-hdpi.png" target-dir="res/drawable/" />
-		<source-file src="res/drawable/ic_stat_ip-mdpi.png" target-dir="res/drawable/" />
-		<source-file src="res/drawable/ic_stat_ip-xhdpi.png" target-dir="res/drawable/" />
-		<source-file src="res/drawable/ic_stat_ip-xxhdpi.png" target-dir="res/drawable/" />
-		<source-file src="res/drawable/ic_stat_ip-xxxhdpi.png" target-dir="res/drawable/" />
+		<source-file src="res/drawable-hdpi/ic_stat_ip.png" target-dir="res/drawable-hdpi/" />
+		<source-file src="res/drawable-mdpi/ic_stat_ip.png" target-dir="res/drawable-mdpi/" />
+		<source-file src="res/drawable-xhdpi/ic_stat_ip.png" target-dir="res/drawable-xhdpi/" />
+		<source-file src="res/drawable-xxhdpi/ic_stat_ip.png" target-dir="res/drawable-xxhdpi/" />
+		<source-file src="res/drawable-xxxhdpi/ic_stat_ip.png" target-dir="res/drawable-xxxhdpi/" />
 	</platform>
 
     <!-- amazon-fireos -->
