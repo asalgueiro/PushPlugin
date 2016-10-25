@@ -170,7 +170,7 @@ public class GCMIntentService extends GCMBaseIntentService {
         String pDate = new SimpleDateFormat("MM/dd/yyyy").format(pDateTime);
         String pTime = new SimpleDateFormat("HH:mm:ss").format(pDateTime);
 
-        title = name + " " + getStateChangeString(state1, state2, duration) + " at " + pDate + " " + pTime;
+        title = name;
 
         int extrasSize = PushPlugin.getExtrasSize();
         if (extrasSize > 0) {
