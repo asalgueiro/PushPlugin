@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/avkomar/PushPlugin.git"
+    "url": "git+https://github.com/asalgueiro/PushPlugin.git"
   },
   "keywords": [
     "ecosystem:cordova",
@@ -37,7 +37,7 @@
   "author": "IPHM team",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/avkomar/PushPlugin/issues"
+    "url": "https://github.com/asalgueiro/PushPlugin/issues"
   },
-  "homepage": "https://github.com/avkomar/PushPlugin#readme"
+  "homepage": "https://github.com/asalgueiro/PushPlugin#readme"
 }
