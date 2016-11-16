@@ -115,8 +115,8 @@
 
     <config-file target="AndroidManifest.xml" parent="/manifest">
       <!-- This permission ensures that no other application can intercept your ADM messages. "[YOUR PACKAGE NAME]" is your package name as defined in your <manifest> tag. -->
-      <permission android:name="$PACKAGE_NAME.permission.RECEIVE_ADM_MESSAGE" android:protectionLevel="signature" />
-      <uses-permission android:name="$PACKAGE_NAME.permission.RECEIVE_ADM_MESSAGE" />
+      <permission android:name="${applicationId}.permission.RECEIVE_ADM_MESSAGE" android:protectionLevel="signature" />
+      <uses-permission android:name="${applicationId}.permission.RECEIVE_ADM_MESSAGE" />
       <!-- This permission allows your app access to receive push notifications from ADM. -->
       <uses-permission android:name="com.amazon.device.messaging.permission.RECEIVE" />
       <!-- ADM uses WAKE_LOCK to keep the processor from sleeping when a message is received. -->
@@ -134,7 +134,7 @@
         <intent-filter>
           <action android:name="com.amazon.device.messaging.intent.REGISTRATION" />
           <action android:name="com.amazon.device.messaging.intent.RECEIVE" />
-          <category android:name="$PACKAGE_NAME" />
+          <category android:name="${applicationId}" />
         </intent-filter>
       </receiver>
     </config-file>
