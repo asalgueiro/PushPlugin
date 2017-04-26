@@ -186,6 +186,7 @@ public class GCMIntentService extends GCMBaseIntentService {
                 .setContentTitle(title)
                 .setTicker(title)
                 .setContentIntent(contentIntent)
+                .setColor(0)
                 .setAutoCancel(true);
 
         mBuilder.setContentText(message != null ? message : "<no message>");
