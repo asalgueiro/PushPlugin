@@ -174,8 +174,8 @@ public class GCMIntentService extends GCMBaseIntentService {
 
         int extrasSize = PushPlugin.getExtrasSize();
         if (extrasSize > 0) {
-            message = "Last: " + title;
-            title = Integer.toString(extrasSize + 1) + " alerts";
+            message = "Último: " + title;
+            title = Integer.toString(extrasSize + 1) + " mensajes";
         }
 
         NotificationCompat.Builder mBuilder =
