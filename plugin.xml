@@ -60,7 +60,7 @@
     </config-file>
 
     <!-- <framework src="com.android.support:support-v4:+" /> -->
-    <framework src="com.android.support:support-v7:+" />
+    <framework src="com.android.support:appcompat-v7:+" />
     <framework src="push.gradle" custom="true" type="gradleReference" />
 
     <!-- dependencies  -->
