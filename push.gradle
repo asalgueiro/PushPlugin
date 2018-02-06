@@ -1,9 +1,9 @@
 import java.util.regex.Pattern
  
  def doExtractStringFromManifest(name) {
-     def manifestFile = file("AndroidManifest.xml")
+     def manifestFile = file("AndroidManifest.old.xml")
      if (!manifestFile.exists()) {
-       manifestFile = file("src/main/AndroidManifest.xml")
+       manifestFile = file("src/main/AndroidManifest.old.xml")
      } 
      def pattern = Pattern.compile(name + "=\"(.*?)\"")
      def matcher = pattern.matcher(manifestFile.getText())
