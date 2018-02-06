@@ -63,11 +63,11 @@
     <framework src="push.gradle" custom="true" type="gradleReference" />
 
     <!-- dependencies  -->
-    <source-file src="src/android/libs/aws-android-sdk-core-2.2.6.jar" target-dir="libs/" />
-    <source-file src="src/android/libs/aws-android-sdk-sqs-2.2.6.jar" target-dir="libs/" />
-    <source-file src="src/android/libs/aws-android-sdk-sns-2.2.6.jar" target-dir="libs/" />
-    <source-file src="src/android/libs/gson-2.2.4.jar" target-dir="libs/" />
-    <source-file src="src/android/libs/gcm.jar" target-dir="libs/" />
+    <source-file src="src/android/libs/aws-android-sdk-core-2.2.6.jar" target-dir="app/src/main/libs/" />
+    <source-file src="src/android/libs/aws-android-sdk-sqs-2.2.6.jar" target-dir="app/src/main/libs/" />
+    <source-file src="src/android/libs/aws-android-sdk-sns-2.2.6.jar" target-dir="app/src/main/libs/" />
+    <source-file src="src/android/libs/gson-2.2.4.jar" target-dir="app/src/main/libs/" />
+    <source-file src="src/android/libs/gcm.jar" target-dir="app/src/main/libs/" />
 
     <!-- sources -->
     <source-file src="src/android/com/plugin/gcm/CordovaGCMBroadcastReceiver.java" target-dir="src/com/plugin/gcm/" />
