@@ -11,7 +11,7 @@ import java.util.regex.Pattern
  android {
      sourceSets {
          main {
-             manifest.srcFile 'AndroidManifest.xml'
+             manifest.srcFile 'app/src/main/AndroidManifest.xml'
          }
     }
  
