@@ -12,11 +12,6 @@ import java.util.regex.Pattern
  }
  
  android {
-     sourceSets {
-         main {
-         }
-    }
- 
      defaultConfig {
          applicationId = doExtractStringFromManifest("package")
      }
