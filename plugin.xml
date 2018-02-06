@@ -36,7 +36,7 @@
       </feature>
     </config-file>
 
-    <config-file target="app/src/main/AndroidManifest.xml" parent="manifest">
+    <config-file target="app/src/main/AndroidManifest.xml" parent="/manifest">
       <uses-permission android:name="android.permission.INTERNET"/>
       <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
       <uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -47,7 +47,7 @@
       <uses-permission android:name="${applicationId}.permission.C2D_MESSAGE" />
     </config-file>
 
-    <config-file target="app/src/main/AndroidManifest.xml" parent="application">
+    <config-file target="app/src/main/AndroidManifest.xml" parent="/manifest/application">
       <activity android:name="com.plugin.gcm.PushHandlerActivity" android:exported="true"/>
       <receiver android:name="com.plugin.gcm.CordovaGCMBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND" >
         <intent-filter>
