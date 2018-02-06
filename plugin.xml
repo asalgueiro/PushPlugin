@@ -3,10 +3,10 @@
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:amazon="http://schemas.android.com/apk/lib/com.amazon.device.ads"
   xmlns:rim="http://www.blackberry.com/ns/widgets"
-  id="cordova-plugin-push-iphm-proto"
+  id="cordova-plugin-push-guivent"
   version="0.0.14">
 
-  <name>PushPlugin_AppKronos</name>
+  <name>PushPlugin_Guivent</name>
   <author>Alejandro Salgueiro</author>
 
   <description>
@@ -113,7 +113,7 @@
       <preference name="defaultnotificationmessage" value="You have a new message." />
     </config-file>
 
-    <config-file target="AndroidManifest.xml" parent="/manifest">
+    <config-file target="app/src/main/AndroidManifest.xml" parent="/manifest">
       <!-- This permission ensures that no other application can intercept your ADM messages. "[YOUR PACKAGE NAME]" is your package name as defined in your <manifest> tag. -->
       <permission android:name="${applicationId}.permission.RECEIVE_ADM_MESSAGE" android:protectionLevel="signature" />
       <uses-permission android:name="${applicationId}.permission.RECEIVE_ADM_MESSAGE" />
@@ -123,7 +123,7 @@
       <uses-permission android:name="android.permission.WAKE_LOCK" />
     </config-file>
 
-    <config-file target="AndroidManifest.xml" parent="/manifest/application">
+    <config-file target="app/src/main/AndroidManifest.xml" parent="/manifest/application">
       <!-- You must explicitly enable ADM and declare whether your app cannot work without ADM (android:required="true") or can work without ADM (android:required="false").
       If you specify android:required="false", your app must degrade gracefully if ADM
       is unavailable. -->
