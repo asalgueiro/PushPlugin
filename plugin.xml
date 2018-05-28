@@ -59,7 +59,7 @@
       <service android:name="com.plugin.gcm.GCMIntentService" />
     </config-file>
 
-    <framework src="com.android.support:support-v4:+" />
+    <framework src="com.android.support:support-v4:23+" />
     <framework src="push.gradle" custom="true" type="gradleReference" />
 
     <!-- dependencies  -->
